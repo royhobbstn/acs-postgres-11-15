@@ -19,7 +19,7 @@ IMPORTANT:  Manually edit the ```connection.json``` file with your postgres data
 To create your database:
 
 ```
-node acs-2-postgres -s de,ne
+node acs-2-postgres.js -s de,ne
 ```
 
 Where de,ne are an example of the states you would like to include in your database. Make sure the state abbreviations are in lower case, and do not include a comma between them.  If you would like all states, use ```-s all``` (this will take a seriously long amount of time, beware.)
@@ -46,5 +46,5 @@ node acs-api.js
 
 -------
 
-Examples:
+## Examples:
 

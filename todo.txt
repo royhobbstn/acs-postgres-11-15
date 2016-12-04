@@ -1,0 +1,12 @@
+
+Check for new / removed tables in latest ACS 1 year.
+
+Probably work on Geo Upload first while waiting for ACS data to be published.
+
+Practice on ACS 1 year while waiting for ACS 5 year publish.
+
+
+
+Convert from event emitters to promises.
+
+Look for SQL efficiencies.

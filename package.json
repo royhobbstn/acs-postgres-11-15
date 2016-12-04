@@ -1,0 +1,19 @@
+{
+  "name": "acs-postgres-11-15",
+  "version": "0.0.1",
+  "description": "acs db with postgis and api",
+  "main": "acs-2-postgres.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royhobbstn/acs-postgres-11-15.git"
+  },
+  "author": "Daniel Trone",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/royhobbstn/acs-postgres-11-15/issues"
+  },
+  "homepage": "https://github.com/royhobbstn/acs-postgres-11-15#readme"
+}
