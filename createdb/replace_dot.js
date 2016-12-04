@@ -4,7 +4,6 @@
 var fs = require('fs');
 var pg = require('pg');
 var copyFrom = require('pg-copy-streams').from;
-var Promise = require('es6-promise').Promise;
 var replace = require('replace');
 
 module.exports = function(st_string, filesEEG, winston) {

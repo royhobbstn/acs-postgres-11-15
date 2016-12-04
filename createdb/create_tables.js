@@ -4,30 +4,29 @@
 
 var fs = require('fs');
 var pg = require('pg');
-var Promise = require('es6-promise').Promise;
 
 module.exports = function(filesEEG, winston) {
   
   console.log('begin create tables (16)');
 
-    var obj = JSON.parse(fs.readFileSync('connection.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('./connection.json', 'utf8'));
 
-    var contents1 = fs.readFileSync('create/create1.sql', 'utf8');
-    var contents2 = fs.readFileSync('create/create2.sql', 'utf8');
-    var contents3 = fs.readFileSync('create/create3.sql', 'utf8');
-    var contents4 = fs.readFileSync('create/create4.sql', 'utf8');
-    var contents5 = fs.readFileSync('create/create5.sql', 'utf8');
-    var contents6 = fs.readFileSync('create/create6.sql', 'utf8');
-    var contents7 = fs.readFileSync('create/create7.sql', 'utf8');
-    var contents8 = fs.readFileSync('create/create8.sql', 'utf8');
-    var contents9 = fs.readFileSync('create/create9.sql', 'utf8');
-    var contents10 = fs.readFileSync('create/create10.sql', 'utf8');
-    var contents11 = fs.readFileSync('create/create11.sql', 'utf8');
-    var contents12 = fs.readFileSync('create/create12.sql', 'utf8');
-    var contents13 = fs.readFileSync('create/create13.sql', 'utf8');
-    var contents14 = fs.readFileSync('create/create14.sql', 'utf8');
-    var contents15 = fs.readFileSync('create/create15.sql', 'utf8');
-    var contents16 = fs.readFileSync('create/create16.sql', 'utf8');
+    var contents1 = fs.readFileSync('./createdb/create/create1.sql', 'utf8');
+    var contents2 = fs.readFileSync('./createdb/create/create2.sql', 'utf8');
+    var contents3 = fs.readFileSync('./createdb/create/create3.sql', 'utf8');
+    var contents4 = fs.readFileSync('./createdb/create/create4.sql', 'utf8');
+    var contents5 = fs.readFileSync('./createdb/create/create5.sql', 'utf8');
+    var contents6 = fs.readFileSync('./createdb/create/create6.sql', 'utf8');
+    var contents7 = fs.readFileSync('./createdb/create/create7.sql', 'utf8');
+    var contents8 = fs.readFileSync('./createdb/create/create8.sql', 'utf8');
+    var contents9 = fs.readFileSync('./createdb/create/create9.sql', 'utf8');
+    var contents10 = fs.readFileSync('./createdb/create/create10.sql', 'utf8');
+    var contents11 = fs.readFileSync('./createdb/create/create11.sql', 'utf8');
+    var contents12 = fs.readFileSync('./createdb/create/create12.sql', 'utf8');
+    var contents13 = fs.readFileSync('./createdb/create/create13.sql', 'utf8');
+    var contents14 = fs.readFileSync('./createdb/create/create14.sql', 'utf8');
+    var contents15 = fs.readFileSync('./createdb/create/create15.sql', 'utf8');
+    var contents16 = fs.readFileSync('./createdb/create/create16.sql', 'utf8');
   
   
 

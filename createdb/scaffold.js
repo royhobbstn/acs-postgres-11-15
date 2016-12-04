@@ -6,7 +6,7 @@ var pg = require('pg');
 
 module.exports = function(filesEEG, winston) {
 
-    var obj = JSON.parse(fs.readFileSync('connection.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('./connection.json', 'utf8'));
 
     var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 

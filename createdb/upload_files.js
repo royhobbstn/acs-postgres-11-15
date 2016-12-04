@@ -4,7 +4,6 @@
 var fs = require('fs');
 var pg = require('pg');
 var copyFrom = require('pg-copy-streams').from;
-var Promise = require('es6-promise').Promise;
 
 module.exports = function(st_string, filesEEG, winston) {
   
@@ -43,7 +42,7 @@ module.exports = function(st_string, filesEEG, winston) {
   console.log('begin upload_files');
 winston.info('begin upload_files');
   
-    var obj = JSON.parse(fs.readFileSync('connection.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('./connection.json', 'utf8'));
 
     var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 
