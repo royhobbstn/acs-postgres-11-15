@@ -19,7 +19,7 @@ module.exports = function (st_string, filesEEG, winston) {
 
     // no state arguments.  end
     if (states.length === 0) {
-        console.log("missing state argument.  program exiting");
+        winston.error("missing state argument.  program exiting");
         process.exit();
     }
 
@@ -28,7 +28,7 @@ module.exports = function (st_string, filesEEG, winston) {
         if (states[j] === "al" || states[j] === "ak" || states[j] === "az" || states[j] === "ar" || states[j] === "ca" || states[j] === "co" || states[j] === "ct" || states[j] === "de" || states[j] === "dc" || states[j] === "fl" || states[j] === "ga" || states[j] === "hi" || states[j] === "id" || states[j] === "il" || states[j] === "in" || states[j] === "ia" || states[j] === "ks" || states[j] === "ky" || states[j] === "la" || states[j] === "me" || states[j] === "md" || states[j] === "ma" || states[j] === "mi" || states[j] === "mn" || states[j] === "ms" || states[j] === "mo" || states[j] === "mt" || states[j] === "ne" || states[j] === "nv" || states[j] === "nh" || states[j] === "nj" || states[j] === "nm" || states[j] === "ny" || states[j] === "nc" || states[j] === "nd" || states[j] === "oh" || states[j] === "ok" || states[j] === "or" || states[j] === "pa" || states[j] === "pr" || states[j] === "ri" || states[j] === "sc" || states[j] === "sd" || states[j] === "tn" || states[j] === "tx" || states[j] === "us" || states[j] === "ut" || states[j] === "vt" || states[j] === "va" || states[j] === "wa" || states[j] === "wv" || states[j] === "wi" || states[j] === "wy" || states[j] === "all") {
             // valid state
         } else {
-            console.log("one or more of your state codes are not valid");
+            winston.error("one or more of your state codes are not valid");
             process.exit();
         }
 
@@ -53,9 +53,8 @@ module.exports = function (st_string, filesEEG, winston) {
 
         if (i === (states.length - 1)) {
             // if last state, then move on to next module
-            console.log("end transliterating files");
             winston.info("end transliterating files");
-            filesEEG.emit("replace_dot");
+            filesEEG.emit("f_replace_dot");
         }
     } // end i loop
 

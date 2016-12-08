@@ -9,14 +9,11 @@ module.exports = function (filesEEG, winston) {
 
     var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 
-
     var contents = fs.readFileSync("scaffold.sql", "utf8");
-    // console.log(contents);
 
     // create duplicate text with moe
     var res = contents.replace(/EXISTS data./g, "EXISTS data.moe");
     res = res.replace(/CONSTRAINT /g, "CONSTRAINT moe");
-
 
     var client = new pg.Client(conString);
 
@@ -32,7 +29,7 @@ module.exports = function (filesEEG, winston) {
     query3.on("end", function () {
         client.end();
         winston.info("end scaffolding");
-        filesEEG.emit("create_meta");
+        filesEEG.emit("d_create_meta");
     });
 
 };

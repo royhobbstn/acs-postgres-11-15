@@ -7,17 +7,21 @@ module.exports = function (filesEEG, winston) {
     var path2 = "scan";
 
     rmdir(path, function (err, dirs, files) {
+        if (err) {
+            winston.error(err);
+        }
         winston.info(dirs);
         winston.info(files);
         winston.info("all temp directory files are removed");
-        console.log("all temp directory files are removed");
     });
 
     rmdir(path2, function (err, dirs, files) {
+        if (err) {
+            winston.error(err);
+        }
         winston.info(dirs);
         winston.info(files);
         winston.info("all scan directory files are removed");
-        console.log("all scan directory files are removed");
     });
 
 };

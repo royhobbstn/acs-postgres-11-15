@@ -2,8 +2,6 @@
 
 
 var fs = require("fs");
-var EventEmitter = require("events").EventEmitter;
-var filesEE = new EventEmitter();
 var X = require("xlsx");
 var pg = require("pg");
 
@@ -96,7 +94,7 @@ module.exports = function (filesEEG, winston) {
     query.on("end", function () {
         client.end();
         winston.info("end create_meta");
-        filesEEG.emit("geo_clean");
+        filesEEG.emit("e_geo_clean");
     });
 
 };

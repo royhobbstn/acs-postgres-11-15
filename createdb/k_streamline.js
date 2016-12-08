@@ -19,7 +19,7 @@ module.exports = function (filesEEG, winston) {
     query.on("end", function () {
         client.end();
 
-        filesEEG.emit("cleanup");
+        filesEEG.emit("l_cleanup");
     });
 
 };

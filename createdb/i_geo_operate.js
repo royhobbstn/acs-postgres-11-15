@@ -33,7 +33,7 @@ module.exports = function (filesEEG, winston) {
         console.log("end geo_operate");
         winston.info("end geo_operate");
 
-        filesEEG.emit("create_tables");
+        filesEEG.emit("j_create_tables");
     });
 
 };

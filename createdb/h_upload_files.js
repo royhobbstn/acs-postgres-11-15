@@ -147,7 +147,7 @@ module.exports = function (st_string, filesEEG, winston) {
             setTimeout(check, 1000); // setTimeout(func, timeMS, params...)
         } else {
             winston.info("calling geo_operate");
-            filesEEG.emit("geo_operate");
+            filesEEG.emit("i_geo_operate");
         }
 
 
