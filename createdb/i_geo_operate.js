@@ -1,14 +1,13 @@
-/*jslint node: true */
 "use strict";
 
-var fs = require('fs');
-var pg = require('pg');
+var fs = require("fs");
+var pg = require("pg");
 
-module.exports = function(filesEEG, winston) {
-  winston.info('begin geo_operate');
-  console.log('begin geo_operate');
+module.exports = function (filesEEG, winston) {
+    winston.info("begin geo_operate");
+    console.log("begin geo_operate");
 
-    var obj = JSON.parse(fs.readFileSync('./connection.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync("./connection.json", "utf8"));
 
     var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 
@@ -27,15 +26,14 @@ module.exports = function(filesEEG, winston) {
         "CREATE TABLE search.data AS SELECT sumlevel as sumlev, logrecno::integer as logrecno, tract, blkgrp as bg, name as geoname, geonum, geoid, state::smallint as state, county::smallint as county, place::integer as place, stusab from data.geo; ALTER TABLE search.data ADD PRIMARY KEY (geonum); CREATE INDEX acs_geoid_idx ON search.data USING btree (geoid); CREATE INDEX acs_state_idx ON search.data USING btree (state); CREATE INDEX acs_sumlev_idx ON search.data USING btree (sumlev);" +
 
         "CREATE TABLE search.key AS SELECT stusab, logrecno::integer as logrecno, geonum from data.geo; ALTER TABLE search.key ADD PRIMARY KEY (stusab, logrecno);"
-
     );
 
-    query.on('end', function() {
+    query.on("end", function () {
         client.end();
-      console.log('end geo_operate');
-      winston.info('end geo_operate');
+        console.log("end geo_operate");
+        winston.info("end geo_operate");
 
-      filesEEG.emit('create_tables');
+        filesEEG.emit("create_tables");
     });
 
 };
