@@ -276,7 +276,6 @@ module.exports = function (st_string, filesEEG, winston) {
             setTimeout(check, 1000); // setTimeout(func, timeMS, params...)
         } else {
             // Set location on form here if it isn't in getLocation()
-          process.exit();
             filesEEG.emit("c_scaffold");
         }
     }
