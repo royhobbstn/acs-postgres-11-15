@@ -19,8 +19,8 @@ module.exports = function (filesEEG, winston) {
             winston.info("scan directory created");
         }
 
-        request("http://www2.census.gov/programs-surveys/acs/summary_file/2014/data/2014_5yr_Summary_FileTemplates.zip")
-            .pipe(fs.createWriteStream("scan/2014_5yr_Summary_FileTemplates.zip"))
+        request("http://www2.census.gov/programs-surveys/acs/summary_file/2015/data/2015_5yr_Summary_FileTemplates.zip")
+            .pipe(fs.createWriteStream("scan/2015_5yr_Summary_FileTemplates.zip"))
             .on("close", function () {
                 winston.info("Template File Written!");
 
@@ -32,12 +32,12 @@ module.exports = function (filesEEG, winston) {
                     }
 
                     // unzip file to temp/file1
-                    fs.createReadStream("scan/2014_5yr_Summary_FileTemplates.zip").pipe(unzip.Extract({
+                    fs.createReadStream("scan/2015_5yr_Summary_FileTemplates.zip").pipe(unzip.Extract({
                         path: "scan/unzip"
                     }));
                     winston.info("unzipped template file");
 
-                    request("http://www2.census.gov/programs-surveys/acs/summary_file/2014/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.xls")
+                    request("http://www2.census.gov/programs-surveys/acs/summary_file/2015/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.xls")
                         .pipe(fs.createWriteStream("scan/ACS_5yr_Seq_Table_Number_Lookup.xls"))
                         .on("close", function () {
                             winston.info("Metadata File Written!");

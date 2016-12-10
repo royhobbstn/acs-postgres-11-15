@@ -238,7 +238,7 @@ module.exports = function (st_string, filesEEG, winston) {
 
         var makerequest = function (processing, geostring, tempfoldername) {
 
-            request("http://www2.census.gov/programs-surveys/acs/summary_file/2014/data/5_year_by_state/" + processing + geostring + ".zip")
+            request("http://www2.census.gov/programs-surveys/acs/summary_file/2015/data/5_year_by_state/" + processing + geostring + ".zip")
                 .pipe(fs.createWriteStream("temp/" + processing + geostring + ".zip"))
                 .on("close", function () {
                     winston.info(processing + " " + geostring + " written!");
@@ -276,6 +276,7 @@ module.exports = function (st_string, filesEEG, winston) {
             setTimeout(check, 1000); // setTimeout(func, timeMS, params...)
         } else {
             // Set location on form here if it isn't in getLocation()
+          process.exit();
             filesEEG.emit("c_scaffold");
         }
     }
