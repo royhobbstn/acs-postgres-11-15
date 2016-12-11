@@ -29,7 +29,6 @@ module.exports = function (filesEEG, winston) {
     query3.on("end", function () {
         client.end();
         winston.info("end scaffolding");
-      process.exit();
         filesEEG.emit("d_create_meta");
     });
 

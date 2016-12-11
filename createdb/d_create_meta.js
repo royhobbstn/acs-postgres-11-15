@@ -46,34 +46,34 @@ module.exports = function (filesEEG, winston) {
 
     var tabletitle = "";
 
-    for (var i = 0; i < alljson[0].Sequence_Number_and_Table_Numbe.length; i = i + 1) {
+  for (var i = 0; i < alljson[0].ACS_5yr_Seq_Table_Number_Lookup.length; i = i + 1) {
 
         // just discard apostrophes
-        tabletitle = alljson[0].Sequence_Number_and_Table_Numbe[i]["Table Title"];
+        tabletitle = alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Table Title"];
         tabletitle = tabletitle.replace(/'/g, " ");
 
         // only if has line number
-        if (alljson[0].Sequence_Number_and_Table_Numbe[i]["Line Number"] != " " && alljson[0].Sequence_Number_and_Table_Numbe[i]["Line Number"] != "") {
+        if (alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Line Number"]) {
 
-            insert_cc = insert_cc + "INSERT INTO data.census_column_metadata VALUES ('" + alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() + pad(alljson[0].Sequence_Number_and_Table_Numbe[i]["Line Number"], 3) + "', '" + alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() + "', '" + parseFloat(alljson[0].Sequence_Number_and_Table_Numbe[i]["Line Number"]) + "', '" + tabletitle + "', 0, 0, '" + tabletitle + "'); ";
+            insert_cc = insert_cc + "INSERT INTO data.census_column_metadata VALUES ('" + alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Table ID"].toLowerCase() + pad(alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Line Number"], 3) + "', '" + alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Table ID"].toLowerCase() + "', '" + parseFloat(alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Line Number"]) + "', '" + tabletitle + "', 0, 0, '" + tabletitle + "'); ";
         }
     }
 
     var universe = "";
 
-    for (var i = 0; i < alljson[0].Sequence_Number_and_Table_Numbe.length; i = i + 1) {
+    for (var i = 0; i < alljson[0].ACS_5yr_Seq_Table_Number_Lookup.length; i = i + 1) {
 
         // just discard apostrophes
-        tabletitle = alljson[0].Sequence_Number_and_Table_Numbe[i]["Table Title"];
+        tabletitle = alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Table Title"];
         tabletitle = tabletitle.replace(/'/g, " ");
 
-        // only if has subject area
-        if (alljson[0].Sequence_Number_and_Table_Numbe[i]["Subject Area"] != " " && alljson[0].Sequence_Number_and_Table_Numbe[i]["Subject Area"] != "" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Subject Area"] != undefined && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24121" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24122" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24123" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24124" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24125" && alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() != "b24126") {
+        // only if has subject area; some tables span multiple seq nums.  sorry these will just be discarded (in metadata files), not worth it.
+        if (alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Subject Area'] != ' ' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Subject Area'] !== '' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Subject Area'] != undefined && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24121' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24122' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24123' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24124' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24125' && alljson[0]['ACS_5yr_Seq_Table_Number_Lookup'][i]['Table ID'].toLowerCase() != 'b24126')  {
 
-            universe = alljson[0].Sequence_Number_and_Table_Numbe[i + 1]["Table Title"];
+            universe = alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i + 1]["Table Title"];
             universe = universe.replace(/'/g, " ");
 
-            insert_ct = insert_ct + "INSERT INTO data.census_table_metadata VALUES ('" + alljson[0].Sequence_Number_and_Table_Numbe[i]["Table ID"].toLowerCase() + "', '" + tabletitle + "', '" + tabletitle + "', '" + alljson[0].Sequence_Number_and_Table_Numbe[i]["Subject Area"] + "', '" + universe + "', '', '{}'); ";
+            insert_ct = insert_ct + "INSERT INTO data.census_table_metadata VALUES ('" + alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Table ID"].toLowerCase() + "', '" + tabletitle + "', '" + tabletitle + "', '" + alljson[0].ACS_5yr_Seq_Table_Number_Lookup[i]["Subject Area"] + "', '" + universe + "', '', '{}'); ";
 
         }
     }
@@ -87,13 +87,14 @@ module.exports = function (filesEEG, winston) {
     var client = new pg.Client(conString);
 
     client.connect();
-
+  
     var query = client.query(cc_meta + ct_meta + insert_cc + insert_ct);
 
 
     query.on("end", function () {
         client.end();
         winston.info("end create_meta");
+      process.exit();
         filesEEG.emit("e_geo_clean");
     });
 
