@@ -46,9 +46,9 @@ module.exports = function (st_string, filesEEG, winston) {
     }
 
     for (i = 0; i < states.length; i = i + 1) {
-        var trans_content = readFileSync_encoding("temp/file1/g20145" + states[i] + ".csv", "utf8");
+        var trans_content = readFileSync_encoding("temp/file1/g20155" + states[i] + ".csv", "utf8");
         // output sql to file that can be read
-        fs.writeFileSync("temp/file1/g20145" + states[i] + ".csv", trans_content);
+        fs.writeFileSync("temp/file1/g20155" + states[i] + ".csv", trans_content);
 
 
         if (i === (states.length - 1)) {

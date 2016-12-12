@@ -53,7 +53,7 @@ module.exports = function (st_string, filesEEG, winston) {
         pg.connect(conString, function (err, client, done) {
 
             var stream = client.query(copyFrom("COPY data.geo FROM STDIN USING DELIMITERS ',' CSV"));
-            var fileStream = fs.createReadStream("temp/file1/g20145" + state + ".csv");
+            var fileStream = fs.createReadStream("temp/file1/g20155" + state + ".csv");
             fileStream.on("end", done);
             fileStream.on("end", function () {
                 countcompleted++;

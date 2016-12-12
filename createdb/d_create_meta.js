@@ -94,7 +94,6 @@ module.exports = function (filesEEG, winston) {
     query.on("end", function () {
         client.end();
         winston.info("end create_meta");
-      process.exit();
         filesEEG.emit("e_geo_clean");
     });
 
