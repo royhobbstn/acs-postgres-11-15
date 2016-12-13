@@ -8,23 +8,18 @@ console.log("acs-shp");
 var fs = require("fs");
 var mkdirp = require("mkdirp");
 var rmdir = require("rmdir");
-
-var exec = require("child_process").exec;
-var EventEmitter = require("events").EventEmitter;
-var filesEE = new EventEmitter();
 var request = require("request");
 var unzip = require("unzip");
-
 var pg = require("pg");
-
 var child_process = require("child_process");
 
-var unzippedcount = 0;
 
 var obj = JSON.parse(fs.readFileSync("connection.json", "utf8"));
-
 var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 
+
+
+var unzippedcount = 0;
 
 var client = new pg.Client(conString);
 
@@ -40,9 +35,9 @@ mkdirp("shp", function (err) {
 
         // start downloading files
 
-        var makerequest = function (root, filename) {
+        var makerequest = function (fileroot, filename) {
 
-            request(root + filename)
+            request(fileroot + filename)
                 .pipe(fs.createWriteStream("shp/" + filename))
                 .on("close", function () {
                     console.log(filename + " written!");
@@ -216,6 +211,9 @@ function manipulate () {
 function cleanup () {
 
     rmdir("shp", function (err, dirs, files) {
+        if (err) {
+            console.log(err);
+        }
         console.log("all shp directory files are removed");
     });
 
