@@ -36,7 +36,7 @@ winston.info("Logfile Created!");
 
 // CONNECTION STRING (TO DO LATER)
 // if omitted, will read connection json file
-// -h gis.dola.colorado.gov -p 5432 -u postgres -w password -d acs1014
+// -h gis.dola.colorado.gov -p 5433 -u postgres -w password -d acs1014
 
 // OPTIONS (TO DO LATER)
 // -l load & unzip data to disk only  ::stops after dl_and_extract.js
@@ -56,7 +56,7 @@ if (process.argv.indexOf("-s") !== -1) { // does our flag exist?
 
 
 // EXAMPLE
-// node index.js host=gis.dola.colorado.gov port=5432 user=postgres password=password -k -s states=ne,ca,tx
+// node index.js host=gis.dola.colorado.gov port=5433 user=postgres password=password -k -s states=ne,ca,tx
 
 var dl_scan_files = require("./createdb/a_dl_scan_files.js");
 var dl_and_extract = require("./createdb/b_dl_and_extract.js");

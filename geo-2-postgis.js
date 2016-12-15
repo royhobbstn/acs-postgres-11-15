@@ -61,17 +61,17 @@ mkdirp("shp", function (err) {
         };
 
 
-        makerequest("http://www2.census.gov/geo/tiger/GENZ2014/shp/", "cb_2014_us_county_500k.zip"); // county CARTO
-        makerequest("http://www2.census.gov/geo/tiger/GENZ2014/shp/", "cb_2014_us_state_500k.zip"); // state CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "carto_bg_14.zip"); // bg CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "carto_pl_14.zip"); // pl CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "carto_tr_14.zip"); // tr CARTO
+        makerequest("http://www2.census.gov/geo/tiger/GENZ2015/shp/", "cb_2015_us_county_500k.zip"); // county CARTO
+        makerequest("http://www2.census.gov/geo/tiger/GENZ2015/shp/", "cb_2015_us_state_500k.zip"); // state CARTO
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_bg_15.zip"); // bg CARTO
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_pl_15.zip"); // pl CARTO
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_tr_15.zip"); // tr CARTO
 
-        makerequest("http://ftp2.census.gov/geo/tiger/TIGER2014/COUNTY/", "tl_2014_us_county.zip"); // county TIGER
-        makerequest("http://ftp2.census.gov/geo/tiger/TIGER2014/STATE/", "tl_2014_us_state.zip"); // state TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "tiger_bg_14.zip"); // bg TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "tiger_pl_14.zip"); // pl TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs14geo/", "tiger_tr_14.zip"); // tr TIGER
+        makerequest("http://ftp2.census.gov/geo/tiger/TIGER2015/COUNTY/", "tl_2015_us_county.zip"); // county TIGER
+        makerequest("http://ftp2.census.gov/geo/tiger/TIGER2015/STATE/", "tl_2015_us_state.zip"); // state TIGER
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_bg_15.zip"); // bg TIGER
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_pl_15.zip"); // pl TIGER
+        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_tr_15.zip"); // tr TIGER
 
 
     }
