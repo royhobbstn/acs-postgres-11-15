@@ -63,15 +63,15 @@ mkdirp("shp", function (err) {
 
         makerequest("http://www2.census.gov/geo/tiger/GENZ2015/shp/", "cb_2015_us_county_500k.zip"); // county CARTO
         makerequest("http://www2.census.gov/geo/tiger/GENZ2015/shp/", "cb_2015_us_state_500k.zip"); // state CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_bg_15.zip"); // bg CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_pl_15.zip"); // pl CARTO
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_tr_15.zip"); // tr CARTO
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_bg_15.zip"); // bg CARTO
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_pl_15.zip"); // pl CARTO
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "carto_tr_15.zip"); // tr CARTO
 
         makerequest("http://ftp2.census.gov/geo/tiger/TIGER2015/COUNTY/", "tl_2015_us_county.zip"); // county TIGER
         makerequest("http://ftp2.census.gov/geo/tiger/TIGER2015/STATE/", "tl_2015_us_state.zip"); // state TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_bg_15.zip"); // bg TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_pl_15.zip"); // pl TIGER
-        makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_tr_15.zip"); // tr TIGER
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_bg_15.zip"); // bg TIGER
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_pl_15.zip"); // pl TIGER
+        // makerequest("https://s3-us-west-2.amazonaws.com/acs15geo/", "tiger_tr_15.zip"); // tr TIGER
 
 
     }
@@ -82,7 +82,7 @@ mkdirp("shp", function (err) {
 function check () {
     console.log("unzipped files: " + unzippedcount);
 
-    if (unzippedcount < 10) {
+    if (unzippedcount < 4) {
         setTimeout(check, 1000); // call again in 1 second
     } else {
 
@@ -116,48 +116,48 @@ function upload () {
     console.log("uploading using shp2pgsql");
 
 
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/cb_2014_us_county_500k.shp carto.county | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/cb_2015_us_county_500k.shp carto.county | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
         encoding: "utf8"
     }));
     console.log("carto county uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/cb_2014_us_state_500k.shp carto.state | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/cb_2015_us_state_500k.shp carto.state | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
         encoding: "utf8"
     }));
     console.log("carto state uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_bg_14.shp carto.bg | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("carto bg uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_pl_14.shp carto.place | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("carto place uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_tr_14.shp carto.tract | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("carto tract uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_bg_15.shp carto.bg | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("carto bg uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_pl_15.shp carto.place | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("carto place uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/carto_tr_15.shp carto.tract | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("carto tract uploaded");
 
 
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tl_2014_us_county.shp tiger.county | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tl_2015_us_county.shp tiger.county | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
         encoding: "utf8"
     }));
     console.log("tiger county uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tl_2014_us_state.shp tiger.state | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tl_2015_us_state.shp tiger.state | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
         encoding: "utf8"
     }));
     console.log("tiger state uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_bg_14.shp tiger.bg | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("tiger bg uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_pl_14.shp tiger.place | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("tiger place uploaded");
-    process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_tr_14.shp tiger.tract | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
-        encoding: "utf8"
-    }));
-    console.log("tiger tract uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_bg_15.shp tiger.bg | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("tiger bg uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_pl_15.shp tiger.place | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("tiger place uploaded");
+//     process.stdout.write(child_process.execSync("shp2pgsql -W 'latin1' -s 4326 shp/tiger_tr_15.shp tiger.tract | psql -d " + obj.db + " -U " + obj.name + " -h " + obj.host + " -p " + obj.port, {
+//         encoding: "utf8"
+//     }));
+//     console.log("tiger tract uploaded");
 
 
     console.log("done uploading");
