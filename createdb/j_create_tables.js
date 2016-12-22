@@ -9,6 +9,7 @@ module.exports = function (filesEEG, winston) {
 
     var obj = JSON.parse(fs.readFileSync("./connection.json", "utf8"));
 
+  // regular
     var contents1 = fs.readFileSync("./createdb/create/create1.sql", "utf8");
     var contents2 = fs.readFileSync("./createdb/create/create2.sql", "utf8");
     var contents3 = fs.readFileSync("./createdb/create/create3.sql", "utf8");
@@ -27,6 +28,25 @@ module.exports = function (filesEEG, winston) {
     var contents16 = fs.readFileSync("./createdb/create/create16.sql", "utf8");
 
 
+  //moe
+    var contents17 = fs.readFileSync("./createdb/create/create17.sql", "utf8");
+    var contents18 = fs.readFileSync("./createdb/create/create18.sql", "utf8");
+    var contents19 = fs.readFileSync("./createdb/create/create19.sql", "utf8");
+    var contents20 = fs.readFileSync("./createdb/create/create20.sql", "utf8");
+    var contents21 = fs.readFileSync("./createdb/create/create21.sql", "utf8");
+    var contents22 = fs.readFileSync("./createdb/create/create22.sql", "utf8");
+    var contents23 = fs.readFileSync("./createdb/create/create23.sql", "utf8");
+    var contents24 = fs.readFileSync("./createdb/create/create24.sql", "utf8");
+    var contents25 = fs.readFileSync("./createdb/create/create25.sql", "utf8");
+    var contents26 = fs.readFileSync("./createdb/create/create26.sql", "utf8");
+    var contents27 = fs.readFileSync("./createdb/create/create27.sql", "utf8");
+    var contents28 = fs.readFileSync("./createdb/create/create28.sql", "utf8");
+    var contents29 = fs.readFileSync("./createdb/create/create29.sql", "utf8");
+    var contents30 = fs.readFileSync("./createdb/create/create30.sql", "utf8");
+    var contents31 = fs.readFileSync("./createdb/create/create31.sql", "utf8");
+    var contents32 = fs.readFileSync("./createdb/create/create32.sql", "utf8");
+  
+  
     var conString = "postgres://" + obj.name + ":" + obj.password + "@" + obj.host + ":" + obj.port + "/" + obj.db;
 
     var client = new pg.Client(conString);
@@ -221,12 +241,202 @@ module.exports = function (filesEEG, winston) {
 
     });
 
+  // MOE promises
+  
+      var promise17 = new Promise(function (resolve, reject) {
+
+        var query17 = client.query(contents17);
+
+        query17.on("end", function () {
+            // client.end();
+            console.log("create17 complete");
+            resolve("");
+        });
+
+    });
+    var promise18 = new Promise(function (resolve, reject) {
+
+        var query18 = client.query(contents18);
+
+        query18.on("end", function () {
+            // client.end();
+            console.log("create18 complete");
+            resolve("");
+        });
+
+    });
+
+    var promise19 = new Promise(function (resolve, reject) {
+
+        var query19 = client.query(contents19);
+
+        query19.on("end", function () {
+            // client.end();
+            console.log("create19 complete");
+            resolve("");
+        });
+
+    });
+    var promise20 = new Promise(function (resolve, reject) {
+
+        var query20 = client.query(contents20);
+
+        query20.on("end", function () {
+            // client.end();
+            console.log("create20 complete");
+            resolve("");
+        });
+
+    });
+
+
+    var promise21 = new Promise(function (resolve, reject) {
+
+        var query21 = client.query(contents21);
+
+        query21.on("end", function () {
+            // client.end();
+            console.log("create21 complete");
+            resolve("");
+        });
+
+    });
+    var promise22 = new Promise(function (resolve, reject) {
+
+        var query22 = client.query(contents22);
+
+        query22.on("end", function () {
+            // client.end();
+            console.log("create22 complete");
+            resolve("");
+        });
+
+    });
+
+
+    var promise23 = new Promise(function (resolve, reject) {
+
+        var query23 = client.query(contents23);
+
+        query23.on("end", function () {
+            // client.end();
+            console.log("create23 complete");
+            resolve("");
+        });
+
+    });
+    var promise24 = new Promise(function (resolve, reject) {
+
+        var query24 = client.query(contents24);
+
+        query24.on("end", function () {
+            // client.end();
+            console.log("create24 complete");
+            resolve("");
+        });
+
+    });
+
+    var promise25 = new Promise(function (resolve, reject) {
+
+        var query25 = client.query(contents25);
+
+        query25.on("end", function () {
+            // client.end();
+            console.log("create25 complete");
+            resolve("");
+        });
+
+    });
+    var promise26 = new Promise(function (resolve, reject) {
+
+        var query26 = client.query(contents26);
+
+        query26.on("end", function () {
+            // client.end();
+            console.log("create26 complete");
+            resolve("");
+        });
+
+    });
+
+
+    var promise27 = new Promise(function (resolve, reject) {
+
+        var query27 = client.query(contents27);
+
+        query27.on("end", function () {
+            // client.end();
+            console.log("create27 complete");
+            resolve("");
+        });
+
+    });
+    var promise28 = new Promise(function (resolve, reject) {
+
+        var query28 = client.query(contents28);
+
+        query28.on("end", function () {
+            // client.end();
+            console.log("create28 complete");
+            resolve("");
+        });
+
+    });
+
+    var promise29 = new Promise(function (resolve, reject) {
+
+        var query29 = client.query(contents29);
+
+        query29.on("end", function () {
+            // client.end();
+            console.log("create29 complete");
+            resolve("");
+        });
+
+    });
+    var promise30 = new Promise(function (resolve, reject) {
+
+        var query30 = client.query(contents30);
+
+        query30.on("end", function () {
+            // client.end();
+            console.log("create30 complete");
+            resolve("");
+        });
+
+    });
+
+
+    var promise31 = new Promise(function (resolve, reject) {
+
+        var query31 = client.query(contents31);
+
+        query31.on("end", function () {
+            // client.end();
+            console.log("create31 complete");
+            resolve("");
+        });
+
+    });
+    var promise32 = new Promise(function (resolve, reject) {
+
+        var query32 = client.query(contents32);
+
+        query32.on("end", function () {
+            // client.end();
+            console.log("create32 complete");
+            resolve("");
+        });
+
+    });
+  
 
     // wait for both promises to complete
-    Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8, promise9, promise10, promise11, promise12, promise13, promise14, promise15, promise16]).then(function (values) {
+    Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8, promise9, promise10, promise11, promise12, promise13, promise14, promise15, promise16, promise17, promise18, promise19, promise20, promise21, promise22, promise23, promise24, promise25, promise26, promise27, promise28, promise29, promise30, promise31, promise32]).then(function (values) {
         console.log("create tables complete!;");
         client.end();
-        filesEEG.emit("k_streamline");
+        // filesEEG.emit("k_streamline");
 
     });
 };
