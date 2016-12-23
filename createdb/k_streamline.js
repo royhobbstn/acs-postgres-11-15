@@ -18,7 +18,7 @@ module.exports = function (filesEEG, winston) {
 
     query.on("end", function () {
         client.end();
-
+        winston.info('streamline complete');
         filesEEG.emit("l_cleanup");
     });
 

@@ -5,7 +5,7 @@ var pg = require("pg");
 
 module.exports = function (filesEEG, winston) {
 
-    console.log("begin create tables (16)");
+    winston.info("begin create tables (16)");
 
     var obj = JSON.parse(fs.readFileSync("./connection.json", "utf8"));
 
@@ -59,7 +59,7 @@ module.exports = function (filesEEG, winston) {
 
         query1.on("end", function () {
             // client.end();
-            console.log("create1 complete");
+            winston.info("create1 complete");
             resolve("");
         });
 
@@ -70,7 +70,7 @@ module.exports = function (filesEEG, winston) {
 
         query2.on("end", function () {
             // client.end();
-            console.log("create2 complete");
+            winston.info("create2 complete");
             resolve("");
         });
 
@@ -82,7 +82,7 @@ module.exports = function (filesEEG, winston) {
 
         query3.on("end", function () {
             // client.end();
-            console.log("create3 complete");
+            winston.info("create3 complete");
             resolve("");
         });
 
@@ -93,7 +93,7 @@ module.exports = function (filesEEG, winston) {
 
         query4.on("end", function () {
             // client.end();
-            console.log("create4 complete");
+            winston.info("create4 complete");
             resolve("");
         });
 
@@ -106,7 +106,7 @@ module.exports = function (filesEEG, winston) {
 
         query5.on("end", function () {
             // client.end();
-            console.log("create5 complete");
+            winston.info("create5 complete");
             resolve("");
         });
 
@@ -117,7 +117,7 @@ module.exports = function (filesEEG, winston) {
 
         query6.on("end", function () {
             // client.end();
-            console.log("create6 complete");
+            winston.info("create6 complete");
             resolve("");
         });
 
@@ -130,7 +130,7 @@ module.exports = function (filesEEG, winston) {
 
         query7.on("end", function () {
             // client.end();
-            console.log("create7 complete");
+            winston.info("create7 complete");
             resolve("");
         });
 
@@ -141,7 +141,7 @@ module.exports = function (filesEEG, winston) {
 
         query8.on("end", function () {
             // client.end();
-            console.log("create8 complete");
+            winston.info("create8 complete");
             resolve("");
         });
 
@@ -153,7 +153,7 @@ module.exports = function (filesEEG, winston) {
 
         query9.on("end", function () {
             // client.end();
-            console.log("create9 complete");
+            winston.info("create9 complete");
             resolve("");
         });
 
@@ -164,7 +164,7 @@ module.exports = function (filesEEG, winston) {
 
         query10.on("end", function () {
             // client.end();
-            console.log("create10 complete");
+            winston.info("create10 complete");
             resolve("");
         });
 
@@ -177,7 +177,7 @@ module.exports = function (filesEEG, winston) {
 
         query11.on("end", function () {
             // client.end();
-            console.log("create11 complete");
+            winston.info("create11 complete");
             resolve("");
         });
 
@@ -188,7 +188,7 @@ module.exports = function (filesEEG, winston) {
 
         query12.on("end", function () {
             // client.end();
-            console.log("create12 complete");
+            winston.info("create12 complete");
             resolve("");
         });
 
@@ -200,7 +200,7 @@ module.exports = function (filesEEG, winston) {
 
         query13.on("end", function () {
             // client.end();
-            console.log("create13 complete");
+            winston.info("create13 complete");
             resolve("");
         });
 
@@ -211,7 +211,7 @@ module.exports = function (filesEEG, winston) {
 
         query14.on("end", function () {
             // client.end();
-            console.log("create14 complete");
+            winston.info("create14 complete");
             resolve("");
         });
 
@@ -224,7 +224,7 @@ module.exports = function (filesEEG, winston) {
 
         query15.on("end", function () {
             // client.end();
-            console.log("create15 complete");
+            winston.info("create15 complete");
             resolve("");
         });
 
@@ -235,7 +235,7 @@ module.exports = function (filesEEG, winston) {
 
         query16.on("end", function () {
             // client.end();
-            console.log("create16 complete");
+            winston.info("create16 complete");
             resolve("");
         });
 
@@ -249,7 +249,7 @@ module.exports = function (filesEEG, winston) {
 
         query17.on("end", function () {
             // client.end();
-            console.log("create17 complete");
+            winston.info("create17 complete");
             resolve("");
         });
 
@@ -260,7 +260,7 @@ module.exports = function (filesEEG, winston) {
 
         query18.on("end", function () {
             // client.end();
-            console.log("create18 complete");
+            winston.info("create18 complete");
             resolve("");
         });
 
@@ -272,7 +272,7 @@ module.exports = function (filesEEG, winston) {
 
         query19.on("end", function () {
             // client.end();
-            console.log("create19 complete");
+            winston.info("create19 complete");
             resolve("");
         });
 
@@ -283,7 +283,7 @@ module.exports = function (filesEEG, winston) {
 
         query20.on("end", function () {
             // client.end();
-            console.log("create20 complete");
+            winston.info("create20 complete");
             resolve("");
         });
 
@@ -296,7 +296,7 @@ module.exports = function (filesEEG, winston) {
 
         query21.on("end", function () {
             // client.end();
-            console.log("create21 complete");
+            winston.info("create21 complete");
             resolve("");
         });
 
@@ -307,7 +307,7 @@ module.exports = function (filesEEG, winston) {
 
         query22.on("end", function () {
             // client.end();
-            console.log("create22 complete");
+            winston.info("create22 complete");
             resolve("");
         });
 
@@ -320,7 +320,7 @@ module.exports = function (filesEEG, winston) {
 
         query23.on("end", function () {
             // client.end();
-            console.log("create23 complete");
+            winston.info("create23 complete");
             resolve("");
         });
 
@@ -331,7 +331,7 @@ module.exports = function (filesEEG, winston) {
 
         query24.on("end", function () {
             // client.end();
-            console.log("create24 complete");
+            winston.info("create24 complete");
             resolve("");
         });
 
@@ -343,7 +343,7 @@ module.exports = function (filesEEG, winston) {
 
         query25.on("end", function () {
             // client.end();
-            console.log("create25 complete");
+            winston.info("create25 complete");
             resolve("");
         });
 
@@ -354,7 +354,7 @@ module.exports = function (filesEEG, winston) {
 
         query26.on("end", function () {
             // client.end();
-            console.log("create26 complete");
+            winston.info("create26 complete");
             resolve("");
         });
 
@@ -367,7 +367,7 @@ module.exports = function (filesEEG, winston) {
 
         query27.on("end", function () {
             // client.end();
-            console.log("create27 complete");
+            winston.info("create27 complete");
             resolve("");
         });
 
@@ -378,7 +378,7 @@ module.exports = function (filesEEG, winston) {
 
         query28.on("end", function () {
             // client.end();
-            console.log("create28 complete");
+            winston.info("create28 complete");
             resolve("");
         });
 
@@ -390,7 +390,7 @@ module.exports = function (filesEEG, winston) {
 
         query29.on("end", function () {
             // client.end();
-            console.log("create29 complete");
+            winston.info("create29 complete");
             resolve("");
         });
 
@@ -401,7 +401,7 @@ module.exports = function (filesEEG, winston) {
 
         query30.on("end", function () {
             // client.end();
-            console.log("create30 complete");
+            winston.info("create30 complete");
             resolve("");
         });
 
@@ -414,7 +414,7 @@ module.exports = function (filesEEG, winston) {
 
         query31.on("end", function () {
             // client.end();
-            console.log("create31 complete");
+            winston.info("create31 complete");
             resolve("");
         });
 
@@ -425,7 +425,7 @@ module.exports = function (filesEEG, winston) {
 
         query32.on("end", function () {
             // client.end();
-            console.log("create32 complete");
+            winston.info("create32 complete");
             resolve("");
         });
 
@@ -434,7 +434,7 @@ module.exports = function (filesEEG, winston) {
 
     // wait for both promises to complete
     Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8, promise9, promise10, promise11, promise12, promise13, promise14, promise15, promise16, promise17, promise18, promise19, promise20, promise21, promise22, promise23, promise24, promise25, promise26, promise27, promise28, promise29, promise30, promise31, promise32]).then(function (values) {
-        console.log("create tables complete!;");
+        winston.info("create tables complete!;");
         client.end();
         // filesEEG.emit("k_streamline");
 

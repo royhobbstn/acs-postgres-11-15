@@ -5,7 +5,6 @@ var pg = require("pg");
 
 module.exports = function (filesEEG, winston) {
     winston.info("begin geo_operate");
-    console.log("begin geo_operate");
 
     var obj = JSON.parse(fs.readFileSync("./connection.json", "utf8"));
 
@@ -30,7 +29,6 @@ module.exports = function (filesEEG, winston) {
 
     query.on("end", function () {
         client.end();
-        console.log("end geo_operate");
         winston.info("end geo_operate");
 
         filesEEG.emit("j_create_tables");
