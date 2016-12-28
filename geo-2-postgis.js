@@ -174,9 +174,7 @@ function upload () {
 function manipulate () {
     console.log("beginning data manipulation");
 
-    var sql = "" +
-        
-        "alter table carto.bg add column geonum bigint; update carto.bg set geonum = ('1' || geoid)::bigint; alter table carto.bg add column state integer; update carto.bg set state=statefp::integer; alter table carto.bg add column county integer; update carto.bg set county=countyfp::integer; alter table carto.bg rename column name to geoname; alter table carto.bg rename column tractce to tract; alter table carto.bg rename column blkgrpce to bg; alter table carto.bg drop column statefp; alter table carto.bg drop column countyfp; CREATE INDEX carto_bg_geoid ON carto.bg USING btree (geoid); CREATE UNIQUE INDEX carto_bg_geonum_idx ON carto.bg USING btree (geonum); CREATE INDEX carto_bg_state_idx ON carto.bg USING btree (state); CREATE INDEX bg_geom_gist ON carto.bg USING gist (geom);" +
+    var sql = "alter table carto.bg add column geonum bigint; update carto.bg set geonum = ('1' || geoid)::bigint; alter table carto.bg add column state integer; update carto.bg set state=statefp::integer; alter table carto.bg add column county integer; update carto.bg set county=countyfp::integer; alter table carto.bg rename column name to geoname; alter table carto.bg rename column tractce to tract; alter table carto.bg rename column blkgrpce to bg; alter table carto.bg drop column statefp; alter table carto.bg drop column countyfp; CREATE INDEX carto_bg_geoid ON carto.bg USING btree (geoid); CREATE UNIQUE INDEX carto_bg_geonum_idx ON carto.bg USING btree (geonum); CREATE INDEX carto_bg_state_idx ON carto.bg USING btree (state); CREATE INDEX bg_geom_gist ON carto.bg USING gist (geom);" +
 
         "alter table carto.county add column geonum bigint; update carto.county set geonum = ('1' || geoid)::bigint; alter table carto.county rename column name to geoname; alter table carto.county add column state integer; update carto.county set state=statefp::integer; alter table carto.county add column county integer; update carto.county set county=countyfp::integer; alter table carto.county drop column statefp; alter table carto.county drop column countyfp; CREATE INDEX carto_county_geoid ON carto.county USING btree (geoid); CREATE UNIQUE INDEX carto_county_geonum_idx ON carto.county USING btree (geonum); CREATE INDEX carto_county_state_idx ON carto.county USING btree (state); CREATE INDEX county_geom_gist ON carto.county USING gist (geom);" +
 
@@ -198,9 +196,9 @@ function manipulate () {
   
     client.connect();
 
-    var query = client.query(sql);
+    var newquery = client.query(sql);
 
-    query.on("end", function () {
+    newquery.on("end", function () {
         client.end();
         console.log("end manipulation");
         cleanup();

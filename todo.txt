@@ -1,4 +1,8 @@
 
+CLEAN UP SCAN AND TEMP AND SHP (IN ADVANCE!)
+GEOJSON MANIPULATE IS NOT BEING HIT
+
+
 Check for new / removed tables in latest ACS 1 year.
 
 Probably work on Geo Upload first while waiting for ACS data to be published.

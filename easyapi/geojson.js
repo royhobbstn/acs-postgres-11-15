@@ -400,7 +400,7 @@ module.exports = function (app, pg, csv, conString) {
 
             // CONSTRUCT MAIN SQL STATEMENT
             // execute query
-            var sql = "SELECT geoname, geonum, " + field + ", st_asgeojson(st_transform(ST_Simplify((\"geom\")," + tolerance + "),4326),4) AS geojson from " + geo + "." + geodesc + " " + jointablelist + " where " + bbstr + " " + joinlist + " limit " + limit + ";";
+            var sql = "SELECT geoname, geonum, " + field + ", st_asgeojson(st_transform(ST_Simplify((\"geom\")," + tolerance + "),4326),4) AS geojson from " + geo + "." + geodesc + " " + jointablelist + " natural join search.data where " + bbstr + " " + joinlist + " limit " + limit + ";";
 
             console.log(sql);
 

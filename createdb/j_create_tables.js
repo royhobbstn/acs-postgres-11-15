@@ -436,7 +436,7 @@ module.exports = function (filesEEG, winston) {
     Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8, promise9, promise10, promise11, promise12, promise13, promise14, promise15, promise16, promise17, promise18, promise19, promise20, promise21, promise22, promise23, promise24, promise25, promise26, promise27, promise28, promise29, promise30, promise31, promise32]).then(function (values) {
         winston.info("create tables complete!;");
         client.end();
-        // filesEEG.emit("k_streamline");
+        filesEEG.emit("k_streamline");
 
     });
 };

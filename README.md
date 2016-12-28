@@ -22,7 +22,7 @@ IMPORTANT:  Manually edit the ```connection.json``` file with your postgres data
 To create your database:
 
 ```
-node acs-2-postgres.js -s de,ne
+nohup node acs-2-postgres.js -s de,ne &
 ```
 
 Where de,ne are an example of the states you would like to include in your database. Make sure the state abbreviations are in lower case, and do not include a comma between them.  If you would like all states, use ```-s all``` (this will take a seriously long amount of time, beware.)
@@ -32,7 +32,7 @@ Where de,ne are an example of the states you would like to include in your datab
 To add postgis and geographic data to your database:
 
 ```
-node geo-2-postgis.js
+PGPASSWORD=password nohup node geo-2-postgis.js &
 ```
 
 Geography for all states and geographic levels will be added (sorry, at this time there is no capability for selecting which state geography you would like to use.)
